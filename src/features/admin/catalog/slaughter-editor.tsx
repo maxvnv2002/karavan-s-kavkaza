@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { RequestCounter } from "../admin-shell";
 import { AdminMain, Button, Heading, Note } from "../admin-ui";
@@ -13,11 +13,14 @@ import { SlaughterDialog } from "./slaughter-dialog";
 import { SlaughterPositionForm } from "./slaughter-position-form";
 import styles from "./slaughter.module.css";
 
-export function SlaughterEditor({ id, selectedId }: { id: string; selectedId?: string }) {
+export function SlaughterEditor() {
+  const params = useSearchParams();
+  const id = params.get("id");
+  const selectedId = params.get("position") ?? undefined;
   const data = useAdminCatalog();
   const slaughter = data.slaughters.find((item) => item.id === id);
   if (!slaughter) return <AdminMain><Heading title="Забой не найден" /><Link href={`${catalogHref}#slaughters`}>Все забои</Link></AdminMain>;
-  return <Editor data={data} slaughter={slaughter} selectedId={selectedId} />;
+  return <Editor key={slaughter.id} data={data} slaughter={slaughter} selectedId={selectedId} />;
 }
 
 function Editor({ data, slaughter, selectedId }: { data: CatalogData; slaughter: Slaughter; selectedId?: string }) {
@@ -55,7 +58,7 @@ function Editor({ data, slaughter, selectedId }: { data: CatalogData; slaughter:
         <Link href="/admin/content">Содержимое сайта</Link>
       </Note>
       {modal === "edit" && <SlaughterDialog item={slaughter} close={() => setModal(undefined)} />}
-      {modal === "add" && <AddToSlaughterDialog data={data} slaughterId={slaughter.id} close={() => setModal(undefined)} onAdd={(id) => router.push(`${slaughterHref(slaughter.id)}?position=${id}#position-editor`)} />}
+      {modal === "add" && <AddToSlaughterDialog data={data} slaughterId={slaughter.id} close={() => setModal(undefined)} onAdd={(id) => router.push(`${slaughterHref(slaughter.id, id)}#position-editor`)} />}
     </AdminMain>
   );
 }
@@ -69,7 +72,7 @@ function PositionSummary({ data, position, selectedId }: { data: CatalogData; po
       <p>{product?.name} · {price.visible ? "на сайте" : "скрыта"}<br />Остаток {position.stock} кг · {position.expiry ? `до ${position.expiry.replace(/\.\d{4},/, ",")}` : "срок не указан"}<br />
         Розница {price.retail} ₽/кг · опт {price.wholesale} ₽ от {position.wholesaleMin} кг
       </p>
-      <Link className={styles.crumb} href={selected ? "#position-editor" : `${slaughterHref(position.slaughterId)}?position=${position.id}#position-editor`}>
+      <Link className={styles.crumb} href={selected ? "#position-editor" : `${slaughterHref(position.slaughterId, position.id)}#position-editor`}>
         {selected ? "К форме редактирования" : "Редактировать"}
       </Link>
     </>

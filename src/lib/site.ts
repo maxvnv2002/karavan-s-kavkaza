@@ -14,10 +14,19 @@ export const navLinks = [
   ["/contacts", "Контакты"],
 ] as const;
 
+export function withBasePath(path: string) {
+  return `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${path}`;
+}
+
+export function absoluteSiteUrl(path: string) {
+  const url = process.env.SITE_URL;
+  return url ? new URL(path, url).href : undefined;
+}
+
 export const media = {
-  logo: "/media/logo.png",
-  farm: "/media/farm.jpg",
-  hens: "/media/hens.jpg",
-  chicken: "/media/chicken.jpg",
-  broth: "/media/broth.jpg",
+  logo: withBasePath("/media/logo.png"),
+  farm: withBasePath("/media/farm.jpg"),
+  hens: withBasePath("/media/hens.jpg"),
+  chicken: withBasePath("/media/chicken.jpg"),
+  broth: withBasePath("/media/broth.jpg"),
 } as const;

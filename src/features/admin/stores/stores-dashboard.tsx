@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { site } from "@/lib/site";
 import { AdminMain, Button, Heading, Note, Notice, Panel } from "../admin-ui";
 import { useResource } from "../local-resource";
@@ -36,7 +37,7 @@ export function StoresDashboard() {
       {sorted.map((item, index) => <StoreEditor key={item.id} item={item} index={index} />)}
       <Panel variant="wide">
         <h3>Самовывоз с фабрики</h3>
-        <Note>{values.address || site.address}. Изменить адрес самовывоза можно в разделе <a href="/admin/content">«Содержимое сайта»</a>.</Note>
+        <Note>{values.address || site.address}. Изменить адрес самовывоза можно в разделе <Link href="/admin/content">«Содержимое сайта»</Link>.</Note>
       </Panel>
     </AdminMain>
   );

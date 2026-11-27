@@ -4,8 +4,12 @@ import { useAdminSave } from "../use-admin-save";
 import styles from "./catalog.module.css";
 
 export const catalogHref = "/admin/catalog";
-export const positionHref = (id: string) => `${catalogHref}/products/${id}`;
-export const slaughterHref = (id: string) => `${catalogHref}/slaughters/${id}`;
+export const positionHref = (id: string) => `${catalogHref}/products?${new URLSearchParams({ id })}`;
+export function slaughterHref(id: string, position?: string) {
+  const params = new URLSearchParams({ id });
+  if (position) params.set("position", position);
+  return `${catalogHref}/slaughters?${params}`;
+}
 export const formText = (data: FormData, name: string) => String(data.get(name) ?? "").trim();
 
 export function EditDialog({ title, children, close, onSave }: {

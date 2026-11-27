@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Actions, AdminMain, Button, Confirm, Fields, Heading, Note, Notice, Panel, Select } from "../admin-ui";
 import { useAdminDraft } from "../use-admin-draft";
@@ -14,7 +14,8 @@ import { OtherSlaughterDialog } from "./position-dialogs";
 import { PositionSidebar } from "./position-sidebar";
 import styles from "./position.module.css";
 
-export function PositionEditor({ id }: { id: string }) {
+export function PositionEditor() {
+  const id = useSearchParams().get("id");
   const data = useAdminCatalog();
   const position = data.positions.find((item) => item.id === id);
   const product = position && positionContext(data, position).product;
