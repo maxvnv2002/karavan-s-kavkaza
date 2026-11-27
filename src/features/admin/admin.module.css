@@ -1,0 +1,49 @@
+.main { display: grid; align-content: start; gap: 24px; padding: 32px 40px 40px; }
+.main h1 { font-size: 30px; }
+.subhead { color: var(--secondary); font-size: 14px; }
+.filters { display: grid; gap: 16px; padding: 20px; background: var(--white); }
+.filters > div { display: flex; flex-wrap: wrap; gap: 20px; color: var(--green); }
+.filters button { font-weight: 500; }
+.filters button[aria-pressed="true"] { font-weight: 600; }
+.filters input { width: 100%; padding: 0; border: 0; font-size: 14px; }
+.table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--white); }
+.table tr { border: 1px solid var(--line); }
+.table th, .table td { padding: 16px; text-align: left; }
+.table th { font-size: 12px; color: var(--secondary); background: var(--soft-green); font-weight: 500; }
+.table :is(th, td):nth-child(1) { width: 8%; }
+.table :is(th, td):nth-child(2) { width: 11%; }
+.table :is(th, td):nth-child(3) { width: 15%; }
+.table :is(th, td):nth-child(5) { width: 9%; }
+.table :is(th, td):nth-child(6) { width: 10%; }
+.table td:nth-child(-n+3) { white-space: nowrap; }
+.cards { display: none; }
+.detail { display: grid; gap: 16px; padding: 24px; background: var(--white); }
+.detail h2 { font-size: 24px; }
+.cardPhone { font-size: 18px; color: var(--green); font-weight: 500; }
+.detailNote { color: var(--secondary); font-size: 14px; }
+.consents { font-size: 14px; }
+.actions { display: flex; flex-wrap: wrap; gap: 16px; }
+.actions button { width: 220px; }
+.empty { padding: 20px; background: var(--white); }
+
+@media (max-width: 767px) {
+  .main { gap: 16px; padding: 28px 24px; }
+  .main h1 { font-size: 28px; }
+  .filters, .table { display: none; }
+  .filters.expanded { display: grid; padding: 16px; }
+  .cards { display: grid; gap: 16px; }
+  .cards li:not([hidden]) { display: grid; gap: 16px; padding: 20px; border: 1px solid var(--line); background: var(--white); }
+  .cards h2 { font-size: 20px; }
+  .mobileTools { display: flex; justify-content: flex-end; font-size: 12px; }
+  .mobileTools button { color: var(--green); }
+  .cardDate { font-size: 12px; color: var(--secondary); }
+  .cardPhone { font-size: 16px; }
+  .detail { padding: 0; background: none; }
+  .consents { font-size: 15px; margin-top: 6px; }
+  .actions { display: grid; }
+  .actions button { width: 100%; }
+}
+
+@media (pointer: coarse) {
+  .filters input { font-size: 16px; }
+}

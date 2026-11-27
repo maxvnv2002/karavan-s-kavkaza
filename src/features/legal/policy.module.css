@@ -1,0 +1,27 @@
+.policy { display: grid; gap: 32px; padding-block: 56px; }
+.back { color: var(--green); font-size: 14px; justify-self: start; }
+.content { display: grid; gap: 32px; }
+.content > h1 { font-size: 44px; line-height: 1.5; }
+.notice, .clause, .consent { display: grid; align-content: start; gap: 16px; }
+.notice, .consent { padding: 24px; }
+.notice { padding: 20px; background: var(--soft-green); }
+.notice > :first-child { font-size: 20px; line-height: 1.5; }
+.clause > :first-child { font-size: 26px; line-height: 1.5; }
+.consent > :first-child { font-size: 30px; line-height: 1.5; }
+.content section p { color: var(--secondary); font-size: 16px; line-height: 24px; }
+.content .notice p { font-size: 14px; line-height: 1.5; }
+.consent { min-height: 231px; background: var(--white); border: 1px solid var(--line); }
+.consent p + p { margin-top: 24px; }
+.inDialog { padding: 24px; }
+.inDialog > h2 { font-size: 30px; line-height: 1.5; }
+.inDialog > section { min-height: auto; }
+.inDialog .clause > :first-child { font-size: 22px; }
+.inDialog .consent > :first-child { font-size: 24px; }
+
+@media (max-width: 767px) {
+  .policy { padding-block: 32px; }
+  .content > h1 { font-size: 30px; }
+  .clause > :first-child { font-size: 22px; }
+  .consent > :first-child { font-size: 24px; }
+  .consent { min-height: auto; }
+}

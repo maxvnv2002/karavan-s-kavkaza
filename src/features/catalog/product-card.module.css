@@ -1,0 +1,28 @@
+.item { min-width: 0; }
+.card {
+  display: block; overflow: hidden; border: 1px solid var(--line);
+  border-radius: var(--radius-card); color: var(--text); background: var(--white);
+}
+.card:hover { border-color: var(--green); text-decoration: none; }
+.card:hover h3 { text-decoration: underline; text-underline-offset: .18em; }
+.card:active { background: var(--page); }
+.media { position: relative; height: 144px; }
+.media img { object-fit: cover; }
+.badge {
+  position: absolute; top: 10px; left: 10px; padding: 5px 8px; border-radius: 6px;
+  background: var(--soft-yellow); font-size: 11px; line-height: 14px; font-weight: 600;
+}
+.body { display: grid; gap: 8px; padding: 12px 12px 16px; }
+.body h3 { min-height: 44px; font-size: 16px; line-height: 22px; font-weight: 600; }
+.description, .detail { min-height: 32px; font-size: 12px; line-height: 16px; color: var(--secondary); }
+.date { min-height: 16px; color: var(--green); font-size: 11px; line-height: 16px; font-weight: 500; }
+.price { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 4px; border-top: 1px solid var(--line); padding-top: 8px; }
+.price strong { font-size: 20px; line-height: 26px; font-weight: 600; white-space: nowrap; }
+.price del { font-size: 11px; color: var(--secondary); white-space: nowrap; }
+.ingredients { color: var(--muted); font-size: 11px; line-height: 15px; display: block; margin-top: 8px; }
+
+@media (max-width: 364px) {
+  .body { padding-inline: 8px; }
+  .price strong { font-size: 17px; }
+  .badge { left: 6px; }
+}

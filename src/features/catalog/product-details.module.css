@@ -1,0 +1,37 @@
+.main { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; padding-bottom: 48px; }
+.crumbs { grid-column: 1 / -1; padding-block: 24px; font-size: 12px; color: var(--muted); }
+.photo { position: relative; height: 440px; }
+.summary, .facts { display: grid; gap: 16px; align-content: start; }
+.summary h1 { font-size: 42px; line-height: 1.29; }
+.code { font-size: 11px; line-height: 16px; color: var(--muted); }
+.description { color: var(--muted); font-size: 14px; }
+.prices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; border-radius: var(--radius-card); background: var(--soft-green); }
+.prices > div { display: grid; align-content: start; gap: 6px; }
+.prices p { color: var(--secondary); font-size: 12px; line-height: 18px; }
+.prices strong, .alternative strong { font-size: 24px; line-height: 30px; font-weight: 600; color: var(--text); }
+.prices > div:last-child strong { color: var(--green); }
+.prices del { color: var(--secondary); font-size: 13px; line-height: 20px; }
+.note { font-size: 12px; line-height: 18px; color: var(--secondary); }
+.facts { grid-column: 2; margin-top: 28px; }
+.facts h2 { font-weight: 400; font-size: 20px; line-height: 28px; }
+.facts dl { padding: 4px 16px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-card); }
+.facts dl div { display: flex; justify-content: space-between; gap: 12px; padding-block: 10px; font-size: 13px; line-height: 20px; }
+.facts dl div + div { border-top: 1px solid var(--line); }
+.facts dt { color: var(--secondary); }
+.facts dd { color: var(--text); text-align: right; }
+.example { font-size: 11px; line-height: 16px; }
+.receive { color: var(--text); font-size: 13px; line-height: 19px; }
+.production { color: var(--green); font-size: 14px; justify-self: start; }
+.alternative { display: grid; gap: 8px; padding: 16px; border-radius: var(--radius-card); background: var(--soft-green); font-size: 14px; }
+.alternative p { color: var(--green); font-size: 12px; line-height: 20px; font-weight: 500; }
+.alternative small { color: var(--secondary); font-size: 13px; line-height: 20px; }
+.alternative span { font-size: 13px; line-height: 20px; }
+
+@media (max-width: 767px) {
+  .main { grid-template-columns: 1fr; padding-bottom: 32px; }
+  .crumbs { padding-block: 12px 20px; line-height: 17px; }
+  .photo { height: 270px; }
+  .summary { padding-block: 24px 28px; }
+  .summary h1 { font-size: 28px; line-height: 36px; }
+  .facts { grid-column: auto; margin-top: 0; }
+}

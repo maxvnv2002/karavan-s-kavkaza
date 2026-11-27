@@ -1,0 +1,86 @@
+.button {
+  display: inline-flex;
+  min-height: var(--control-height);
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  background: var(--button-background, var(--action));
+  color: var(--button-foreground, var(--white));
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+}
+.button:hover:not(:disabled) { background: var(--button-hover, var(--action-hover)); text-decoration: none; }
+.button:active:not(:disabled) { background: var(--button-active, var(--action-active)); }
+.button:disabled { opacity: .45; }
+.button--accent {
+  --button-background: var(--accent);
+  --button-foreground: var(--text);
+  --button-hover: color-mix(in srgb, var(--accent), var(--text) 8%);
+  --button-active: color-mix(in srgb, var(--accent), var(--text) 16%);
+}
+.button--full { width: 100%; }
+.button--outline { background: var(--white); color: var(--green); border-color: var(--green); }
+.button--outline:hover:not(:disabled) { background: var(--soft-green); }
+.button--outline:active:not(:disabled) { background: var(--line); }
+.price-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 4px;
+  border-radius: var(--radius-control);
+  background: var(--soft-green);
+}
+.price-switch button {
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--secondary);
+  font-size: 12px;
+}
+.price-switch button:hover { background: var(--line); }
+.price-switch button[aria-pressed="true"] { background: var(--white); color: var(--text); font-weight: 500; }
+.price-switch button:active { background: var(--line); }
+.text-button {
+  padding: 0; border: 0; background: none; color: inherit; text-align: inherit;
+}
+.text-button:hover { text-decoration: underline; text-underline-offset: .18em; }
+.text-button:active { opacity: .75; }
+.field {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--neutral-line);
+  border-radius: 5px;
+  background: var(--white);
+  font-size: 14px;
+}
+.field:focus-visible { outline-offset: 1px; }
+.field::placeholder { color: var(--muted); }
+
+@media (pointer: coarse) {
+  input.field, select.field { font-size: 16px; }
+}
+
+.brand-mark {
+  display: block;
+  position: relative;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 44px;
+  overflow: hidden;
+}
+.brand-mark img {
+  position: absolute;
+  max-width: none;
+  width: 182.86%;
+  height: 133.51%;
+  left: -47.86%;
+  top: -2.86%;
+}

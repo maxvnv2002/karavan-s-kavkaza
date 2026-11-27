@@ -1,0 +1,90 @@
+.hero {
+  display: grid; grid-template-columns: minmax(0, 620fr) minmax(0, 564fr);
+  column-gap: clamp(24px, 4.45vw, 64px); row-gap: 24px;
+  padding-block: 48px 64px; align-items: start;
+}
+.headline { display: grid; gap: 24px; grid-column: 1; font-size: 18px; line-height: 1.4; color: var(--secondary); }
+.headline h1 { font-size: clamp(36px, 3.75vw, 54px); color: var(--text); }
+.heroAction {
+  --button-background: var(--action-strong);
+  --button-hover: color-mix(in srgb, var(--action-strong), black 8%);
+  --button-active: color-mix(in srgb, var(--action-strong), black 16%);
+  grid-column: 1;
+  width: 220px;
+}
+.heroPhoto { grid-column: 2; grid-row: 1 / 4; align-self: center; position: relative; height: 390px; }
+.schedule { grid-column: 1; display: grid; gap: 16px; padding: 20px; font-size: 12px; }
+.dates { color: var(--text); font-size: 18px; }
+.callout { display: grid; justify-items: start; gap: 16px; padding-block: 36px; }
+.callout h2 { color: var(--text); font-size: 28px; }
+.callout a, .callout button { width: 300px; }
+.halal { padding-block: 96px; }
+.halal h2 { font-size: 32px; }
+.halal p { font-size: 14px; }
+.halal a { width: 350px; }
+.featured { display: grid; gap: 28px; padding-block: 12px 64px; }
+.featureTitle { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.featureTitle h2 { font-size: 34px; line-height: 1.4; }
+.featureTitle a { color: var(--green); font-size: 14px; font-weight: 500; flex: none; }
+.categories { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.categories a { display: grid; gap: 16px; padding: 16px; background: var(--soft-green); color: var(--text); }
+.categories h3 { font-size: 25px; font-weight: 400; }
+.categories p { color: var(--secondary); }
+.priceOptions { justify-self: end; }
+.cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.disclaimer { font-size: 12px; line-height: 1.4; color: var(--muted); }
+.purchase { background: var(--soft-green); }
+.purchaseInner { display: grid; gap: 32px; padding-block: 48px; line-height: 1.4; }
+.purchase h2 { font-size: 32px; }
+.purchase ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.purchase li, .purchase li > div { display: grid; align-content: start; gap: 12px; }
+.stepNumber { font-size: 12px; font-weight: 600; color: var(--green); }
+.purchase h3 { font-size: 21px; }
+.purchase p { font-size: 14px; color: var(--secondary); }
+.factory {
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 20px 64px;
+  padding-block: 64px; min-height: 558px; line-height: 1.4;
+}
+.factoryCopy { display: grid; gap: 20px; }
+.factory h2 { font-size: 34px; }
+.factoryPhoto { position: relative; height: 320px; }
+.factoryCopy > p { color: var(--secondary); font-size: 16px; }
+
+@media (min-width: 768px) and (max-width: 1050px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .hero { grid-template-columns: 1fr; gap: 20px; padding-block: 24px 32px; }
+  .headline { gap: 12px; font-size: 14px; line-height: 1.45; }
+  .headline h1 { font-size: 34px; line-height: 1.45; }
+  .heroPhoto { grid-column: 1; grid-row: auto; height: 224px; }
+  .heroAction { width: 100%; }
+  .dates { font-size: 17px; }
+  .callout { padding-block: 28px; }
+  .callout h2 { font-size: 24px; }
+  .callout a, .callout button { width: 100%; }
+  .halal { padding-block: 24px; }
+  .halal p { font-size: 14px; }
+  .featured { gap: 20px; padding-block: 28px 32px; }
+  .featureTitle { gap: 12px; }
+  .featureTitle h2 { font-size: 23px; }
+  .featureTitle a { font-size: 12px; }
+  .categories { grid-template-columns: 1fr; gap: 16px; }
+  .categories a { display: grid; gap: 16px; padding: 0; background: none; }
+  .categories h3 { font-size: 20px; }
+  .categories p { font-size: 12px; line-height: 1.45; }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .purchaseInner { gap: 20px; padding-block: 28px 32px; line-height: 1.45; }
+  .purchase h2 { font-size: 25px; }
+  .purchase ol { grid-template-columns: 1fr; gap: 20px; }
+  .purchase li { grid-template-columns: 18px 1fr; gap: 12px; }
+  .purchase li > div { gap: 4px; }
+  .purchase h3 { font-size: 16px; }
+  .purchase li p { font-size: 13px; line-height: 1.45; }
+  .factory { grid-template-columns: 1fr; gap: 16px; padding-block: 32px; min-height: auto; }
+  .factoryCopy { display: contents; }
+  .factory h2 { grid-column: 1; grid-row: 1; font-size: 25px; line-height: 1.45; }
+  .factoryPhoto { grid-row: 2; height: 200px; }
+  .factoryCopy > p { grid-column: 1; font-size: 14px; line-height: 1.45; }
+}

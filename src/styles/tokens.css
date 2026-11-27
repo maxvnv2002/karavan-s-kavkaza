@@ -1,0 +1,61 @@
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-symbols.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  unicode-range: U+20BD, U+2190, U+2192-2193, U+2197;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-cyrillic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191,
+    U+2212, U+2215, U+2521, U+FEFF, U+FFFD;
+}
+
+:root {
+  --paper: #f8f7f2;
+  --page: #fbfcf7;
+  --white: #fff;
+  --ink: #25382d;
+  --text: #183e2c;
+  --secondary: #5c6b60;
+  --muted: #677267;
+  --green: #217641;
+  --action: #2fa34f;
+  --action-ink: #082b16;
+  --action-strong: #227a3b;
+  --action-hover: color-mix(in srgb, var(--action), black 8%);
+  --action-active: color-mix(in srgb, var(--action), black 16%);
+  --accent: #fcee21;
+  --soft-green: #edf4e7;
+  --green-muted: #dce8d8;
+  --soft-yellow: #f9f5ce;
+  --line: #d6e2d3;
+  --neutral-line: #dce0d4;
+  --on-dark: #c4d3c1;
+  --gutter: clamp(24px, 6.6667vw, 96px);
+  --max: 1248px;
+  --radius-control: 6px;
+  --radius-image: 8px;
+  --radius-card: 12px;
+  --control-height: 48px;
+}
+
+@media (max-width: 767px) {
+  :root { --gutter: 24px; }
+}

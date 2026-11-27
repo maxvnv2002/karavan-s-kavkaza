@@ -1,0 +1,27 @@
+.header { border-bottom: 1px solid var(--line); }
+.inner { display: flex; align-items: center; min-height: 75px; gap: 24px; }
+.brand { display: flex; align-items: center; flex: none; gap: 24px; font-size: 21px; font-weight: 600; }
+.nav { display: flex; flex: 1; align-items: center; gap: clamp(12px, 2vw, 28px); font-size: 14px; }
+.phone { font-size: 16px; font-weight: 500; white-space: nowrap; }
+.menu { margin-left: auto; font-size: 13px; font-weight: 500; }
+.menu summary { display: grid; list-style: none; min-height: 44px; place-items: center; cursor: pointer; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu nav {
+  display: grid; position: absolute; z-index: 2; top: 60px; right: var(--gutter);
+  min-width: min(240px, 100% - var(--gutter) * 2); padding: 8px 16px;
+  border: 1px solid var(--line); border-radius: var(--radius-image); background: var(--page);
+  box-shadow: 0 8px 24px rgb(24 62 44 / 10%);
+}
+.menu nav a { padding: 12px 0; }
+
+@media (max-width: 950px) {
+  .header { border-bottom: 0; }
+  .inner { min-height: 68px; gap: 12px; }
+  .brand { gap: 12px; font-size: 15px; }
+  .inner .nav, .inner .phone { display: none; }
+  .inner .menu { display: revert; }
+}
+
+@media (max-width: 340px) {
+  .brand { flex: 0 1 auto; }
+}

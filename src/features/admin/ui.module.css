@@ -1,0 +1,33 @@
+.main { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 24px; padding: 32px 40px 40px; min-width: 0; }
+.main h1 { font-size: 30px; line-height: 1.45; }
+.main h2 { font-size: 24px; }
+.main h3 { font-size: 20px; }
+.heading { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.heading > div:first-child { display: grid; gap: 6px; }
+.panel { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; min-width: 0; gap: 16px; padding: 20px; background: var(--white); }
+.wide, .card { padding: 24px; }
+.card { border: 1px solid var(--neutral-line); border-radius: 8px; }
+.green { background: var(--soft-green); }
+.note { color: var(--secondary); font-size: 14px; }
+.label { display: grid; gap: 8px; min-width: 0; align-content: start; color: var(--ink); font-size: 12px; font-weight: 500; line-height: 17px; }
+.label :is(input, textarea, select) { font-weight: 400; line-height: 1.45; }
+.label input::placeholder { color: var(--ink); opacity: 1; }
+.label .select { cursor: pointer; text-overflow: ellipsis; }
+.textarea { min-height: 88px; padding: 12px; font: inherit; font-size: 14px; color: inherit; resize: none; field-sizing: content; }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; min-width: 0; }
+.success { color: var(--green); font-size: 14px; }
+.error { color: #9e3427; font-size: 14px; }
+.dialog { width: min(540px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--line); border-radius: 8px; }
+.dialogBody { display: grid; gap: 16px; padding: 24px; }
+.dialog h2 { font-size: 24px; }
+
+@media (max-width: 767px) {
+  .main { padding: 24px; gap: 20px; }
+  .main h1 { font-size: 28px; }
+  .main h2 { font-size: 22px; }
+  .panel, .wide, .card { padding: 16px; }
+  .fields:not(.keepColumns) { grid-template-columns: minmax(0, 1fr); }
+  .dialogBody { padding: 18px; }
+}

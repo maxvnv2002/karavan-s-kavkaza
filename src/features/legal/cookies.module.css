@@ -1,0 +1,30 @@
+.banner {
+  position: fixed; z-index: 4; inset: auto 32px 50px; display: grid; grid-template-columns: minmax(0, 1fr) 320px; align-items: center; gap: 32px;
+  padding: 24px; background: var(--white); color: var(--text); border: 1px solid var(--line);
+  border-radius: var(--radius-image); box-shadow: 0 8px 24px rgb(24 62 44 / 8%);
+}
+.banner h2, .settings h2 { font-size: 24px; }
+.settings h2 { line-height: 35px; }
+.banner p { color: var(--secondary); font-size: 16px; }
+.settings p { color: var(--secondary); font-size: 14px; line-height: 20px; }
+.bannerCopy { display: grid; gap: 16px; }
+.bannerCopy a, .settings a { color: var(--green); font-size: 13px; justify-self: start; }
+.choices { display: grid; gap: 12px; }
+.settings {
+  width: min(390px, 100%); max-width: none; max-height: calc(100dvh - 24px); padding: 24px;
+  border: 0; border-radius: var(--radius-image); background: var(--white);
+}
+.settings[open] { display: grid; gap: 20px; }
+.settings > div { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.settings > div button { min-width: 32px; min-height: 32px; text-align: center; font-size: 20px; }
+.settings h3 { font-size: 16px; line-height: 23px; }
+.settings a { line-height: 19px; }
+
+@media (max-width: 767px) {
+  .banner { inset: auto 12px 12px; padding: 16px; gap: 12px; grid-template-columns: 1fr; max-height: 65dvh; overflow: auto; }
+  .banner h2 { font-size: 19px; }
+  .banner p { font-size: 12px; }
+  .bannerCopy { gap: 8px; }
+  .choices { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .choices button { flex: 1; min-width: 0; padding-inline: 8px; font-size: 12px; }
+}

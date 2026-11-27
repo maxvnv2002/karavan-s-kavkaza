@@ -1,0 +1,40 @@
+.admin { min-height: 100dvh; color: var(--text); }
+.header {
+  min-height: 79px; display: flex; align-items: center; gap: 16px; padding: 12px 40px 12px 32px;
+  font-size: 13px; background: var(--white); border-bottom: 1px solid var(--line);
+}
+.header > a:not(.brand) { color: var(--green); font-weight: 500; }
+.brand { display: flex; gap: 12px; align-items: center; margin-right: auto; min-width: 0; }
+.brand > span:last-child { display: flex; align-items: center; gap: 12px; }
+.brand strong { font-size: 18px; font-weight: 600; color: var(--ink); }
+.brand small { color: var(--muted); font-size: 13px; }
+.shell { display: grid; grid-template-columns: 216px minmax(0, 1fr); min-height: calc(100dvh - 79px); }
+.sidebar { align-self: start; min-height: 1100px; padding: 28px 20px; background: var(--soft-green); }
+.sidebar nav { display: grid; gap: 12px; }
+.sidebar nav > a, .counter {
+  display: flex; justify-content: space-between; gap: 8px; align-items: center;
+  padding: 12px; border-radius: 4px; font-size: 14px; font-weight: 500;
+}
+.sidebar nav > a:hover { background: var(--line); }
+.sidebar nav > a[aria-current] { background: var(--action); color: var(--white); }
+.counter { background: var(--soft-green); }
+.badge { display: grid; min-width: 30px; min-height: 27px; place-items: center; padding-inline: 4px; border-radius: 15px; color: var(--action-ink); background: var(--action); font-size: 13px; }
+.sidebar a[aria-current] .badge { background: var(--white); }
+.header .menu, .sidebar .menu { display: none; }
+
+@media (max-width: 1050px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .sidebar { display: none; min-height: 0; }
+  .sidebar.open { display: block; }
+  .header .desktop { display: none; }
+  .header .menu, .sidebar nav .menu { display: flex; }
+  .header .menu { min-height: 44px; align-items: center; font-size: 12px; }
+}
+
+@media (max-width: 767px) {
+  .header { padding: 17px 24px; gap: 12px; min-height: 78px; border-bottom: 0; }
+  .brand > span:last-child { display: grid; gap: 2px; }
+  .brand strong { font-size: 16px; line-height: 21px; }
+  .brand small { font-size: 10px; }
+  .counter { padding-inline: 16px; border-radius: 0; font-size: 16px; }
+}

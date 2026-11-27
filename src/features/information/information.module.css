@@ -1,0 +1,40 @@
+.back { color: var(--green); font-size: 14px; font-weight: 500; justify-self: start; }
+.productionIntro { display: grid; gap: 28px; padding-block: 56px; }
+.introGrid { display: grid; align-items: start; grid-template-columns: minmax(0, 1fr) minmax(240px, 380px); gap: 48px; }
+.productionIntro h1, .contacts h1 { font-size: 48px; line-height: 1.45; }
+.lead { font-size: 18px; }
+.certificate, .statusCard { display: grid; align-content: start; gap: 12px; padding: 24px; }
+.certificate { font-size: 16px; }
+.certificate h2 { font-size: 28px; }
+.productionSection { display: grid; gap: 28px; padding-block: 56px; }
+.productionSection > h2, .contacts h2 { font-size: 30px; }
+.productionSection > p { font-size: 16px; }
+.cardGrid { display: grid; gap: 28px 24px; }
+.stages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.documents { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.statusCard { background: var(--white); border: 1px solid var(--line); }
+.statusCard h3 { font-size: 20px; }
+.origin h3 { font-size: 24px; }
+.statusCard p:last-child { color: var(--secondary); font-size: 15px; }
+.origin p:last-child { font-size: 16px; }
+.wholesaleDocs { width: 300px; }
+.homeLink { width: 240px; }
+.contacts { display: grid; gap: 48px; padding-block: 56px; font-size: 16px; }
+.contactCard { display: grid; align-content: start; gap: 16px; padding: 24px; }
+.contactCard.outlined { border: 1px solid var(--line); }
+.phone { color: var(--green); font-size: 30px; font-weight: 500; justify-self: start; }
+.small { color: var(--secondary); font-size: 13px; }
+.contactDocs { display: grid; gap: 16px; }
+
+@media (max-width: 767px) {
+  .productionIntro, .productionSection { gap: 20px; padding-block: 32px; }
+  .introGrid { grid-template-columns: 1fr; gap: 24px; }
+  .productionIntro h1, .contacts h1 { font-size: 32px; }
+  .certificate h2, .productionSection > h2, .contacts h2 { font-size: 24px; }
+  .cardGrid { grid-template-columns: 1fr; gap: 20px; }
+  .origin h3 { font-size: 20px; }
+  .homeLink, .wholesaleDocs { width: 100%; }
+  .contacts { gap: 32px; padding-block: 32px; }
+  .contacts .phone { font-size: 24px; }
+  .contactDocs { gap: 16px; }
+}

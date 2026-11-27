@@ -1,0 +1,28 @@
+.form, .stack { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 24px; min-width: 0; }
+.columns { display: grid; grid-template-columns: minmax(0, 740fr) minmax(0, 380fr); gap: 24px; }
+.editor h1 { font-size: 29px; color: var(--ink); }
+.form > div:nth-child(2) { align-items: center; }
+.form > div:nth-child(2) > div:first-child { gap: 4px; }
+.form > div:nth-child(2) p { font-size: 12px; }
+.form > div:nth-child(2) .quiet { margin-right: 2px; }
+.form button[type="submit"] { padding-inline: 10px; }
+.columns h3 { font-weight: 400; }
+.columns > div h3 { font-size: 21px; }
+.columns > div section > h3 + p { line-height: normal; }
+.columns > aside h2 { font-size: 22px; font-weight: 400; }
+.columns > aside h2 ~ p { font-size: 14px; }
+.columns > aside h2 ~ .price { font-size: 20px; line-height: 1.4; }
+.back, .green { color: var(--green); font-size: 14px; }
+.back { font-size: 12px; font-weight: 500; }
+.quiet { color: var(--secondary); font-size: 13px; }
+.price { font-size: 20px; }
+.price del { font-size: 13px; color: var(--secondary); }
+.small { font-size: 12px; }
+.saveBar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; padding: 20px; background: #edf2e6; font-size: 14px; }
+.editor label:has(:global(.admin-product-description)) { gap: 14px; }
+.editor :global(.admin-product-description) { min-height: 20px; padding: 0; border: 0; color: var(--secondary); }
+
+@media (max-width: 767px) {
+  .columns { grid-template-columns: minmax(0, 1fr); }
+  .form, .stack { gap: 20px; }
+}

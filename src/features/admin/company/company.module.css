@@ -1,0 +1,15 @@
+.main > section:nth-of-type(2) form > p, .main > section:nth-of-type(n + 4) form > p, .document > p { font-size: 13px; }
+.form, .document { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; min-width: 0; }
+.companyFields > div { column-gap: 20px; }
+.document { padding: 16px; border: 1px solid var(--line); }
+.document h3 { font-size: 18px; }
+.document > p { line-height: 1.45; }
+.docActions { display: grid; align-items: end; gap: 16px; grid-template-columns: 220px minmax(0, 1fr); }
+.green { color: var(--green); font-size: 14px; }
+.policy { min-height: 114px; border-color: var(--line); border-radius: 0; background: var(--page); padding: 16px; }
+.form label:has(.policy) { gap: 16px; }
+.form label:has(.policy) > span { font-size: 16px; font-weight: 500; line-height: 1.45; }
+
+@media (max-width: 620px) {
+  .docActions { grid-template-columns: minmax(0, 1fr); }
+}

@@ -1,0 +1,51 @@
+.catalog { padding-bottom: 32px; }
+.intro { display: grid; gap: 16px; padding-block: 48px 24px; max-width: 590px; }
+.intro h1 { font-size: 44px; line-height: 1.4; }
+.intro p { font-size: 14px; line-height: 19px; color: var(--secondary); }
+.intro input { min-height: 46px; padding-inline: 15px; border-color: var(--line); }
+.filters { display: grid; grid-template-columns: auto auto 1fr; gap: 12px 24px; margin-bottom: 24px; }
+.segment, .group { display: flex; gap: 8px; flex-wrap: wrap; }
+:is(.segment, .group) button {
+  min-height: 37px; padding: 9px 12px; border: 0; border-radius: 5px;
+  background: var(--soft-green); color: var(--text); font-size: 12px;
+}
+:is(.segment, .group) button[aria-pressed="true"] { background: var(--action); color: var(--white); font-weight: 500; }
+:is(.segment, .group) button:hover:not(:disabled, [aria-pressed="true"]) { background: var(--line); }
+:is(.segment, .group) button:active:not(:disabled) { background: var(--action-strong); color: var(--white); }
+:is(.segment, .group) button:disabled { opacity: .5; }
+.sort {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px; grid-column: 1 / -1;
+  padding-top: 12px; border-top: 1px solid var(--line);
+}
+.sort select {
+  appearance: none; padding: 0 16px 0 0; border: 0; cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 2v8m0 0L3 7m3 3 3-3' fill='none' stroke='%23677267'/%3E%3C/svg%3E") right center / 12px 12px no-repeat;
+  color: var(--muted); font-size: 13px; line-height: 17px;
+}
+.count { grid-column: 1 / -1; color: var(--muted); font-size: 11px; }
+.products { display: grid; gap: 24px; }
+.explanation { color: var(--secondary); font-size: 12px; }
+.note { color: var(--muted); font-size: 11px; line-height: 15px; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.empty { display: grid; gap: 12px; justify-items: start; background: var(--soft-green); padding: 24px; }
+.empty button { color: var(--green); }
+
+@media (max-width: 1050px) {
+  .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .intro { padding-block: 24px 20px; max-width: none; }
+  .intro h1 { font-size: 30px; }
+  .filters { grid-template-columns: 1fr; }
+  .segment button { text-align: left; }
+  .segment button:last-child { flex: 1; }
+  .segment button:first-child { min-width: 144px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+}
+
+@media (max-width: 365px) {
+  .group { gap: 4px; }
+  .group button { padding-inline: 7px; }
+  .segment button:first-child { min-width: auto; }
+}
