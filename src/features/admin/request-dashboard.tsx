@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useRef, useState } from "react";
 import { RequestCounter } from "./admin-shell";
 import { changeRequestStatus, useRequests } from "@/features/wholesale/request-store";
@@ -10,6 +11,11 @@ import styles from "./admin.module.css";
 
 const filters = [["all", "Все"], ["new", "Новые"], ["active", "В работе"], ["closed", "Закрытые"]] as const;
 type Filter = (typeof filters)[number][0];
+
+export function RequestDashboardFromUrl() {
+  const id = useSearchParams().get("request") ?? undefined;
+  return <RequestDashboard key={id} selectedId={id} />;
+}
 
 export function RequestDashboard({ selectedId }: { selectedId?: string }) {
   const all = useRequests();

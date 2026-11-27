@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { AdminMain, Button, Heading, Panel } from "../admin-ui";
 import { displayDate, slaughterSchedule } from "../catalog/catalog-model";
@@ -19,7 +20,7 @@ export function ContentDashboard() {
       <SiteCopyEditor onBusy={setBusy} />
       <Panel>
         <h2>График забоев</h2>
-        <p>Изменить график можно в разделе <a href="/admin/catalog#slaughters">«Забои»</a>.</p>
+        <p>Изменить график можно в разделе <Link href="/admin/catalog#slaughters">«Забои»</Link>.</p>
         <p className={styles.green}>Последний забой: {latest ? displayDate(latest.date) : "не указан"}. Следующий забой: {next ? displayDate(next.date) : "не запланирован"}.</p>
       </Panel>
       <ProductionEditor />
